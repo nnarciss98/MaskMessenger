@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Chat Room</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        .form-inline{
+            position: absolute;
+            left: 35%;
+            bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .row {
+            padding-right: 10%;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+            left: 10%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="row">
+        <h1> Welcome to the chat room </h1>
+        <a type="button" class="btn btn-default btn-danger pull-right"  href="/logout">
+            Log Out
+        </a>
+    </div>
+
+    <br>
+    <table>
+        <tr th:each="message: ${messages}">
+            <td th:text="${message.senderName}"/>
+            <td th:text="${message.messageText}"/>
+        </tr>
+
+    </table>
+
+
+    <form class="form-inline" th:action="@{/api/maskmessenger/messages}" method="post" th:object="${message}" >
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="text" th:field="*{messageText}" class="form-control" size="80" placeholder="Place your message here"/>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Send</button>
+    </form>
+
+
+
+
+
+</body>
+</html>
