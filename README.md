@@ -64,3 +64,9 @@ The following are the original functionalities I wanted to implement. But I'll p
 
 * (Optional if I still have the time and energy to do so) Scripted voice / video calls.
   * We'll see about this in the future :)
+  
+
+### V. 1.0.0 ###
+
+The first version is a group chat where everyone can send messages anonymously (usernames, and other data of the sender is not saved).
+It has a man page that sends you to a login page, after which, if successfully logged in, you can send messages in the chat.
